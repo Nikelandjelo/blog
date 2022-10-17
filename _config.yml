@@ -104,8 +104,9 @@ comments:
     category: Blog Comments
     category_id: DIC_kwDOIPQzwM4CSB1T
     mapping: url       # optional, default to 'pathname'
-    input_position:    # optional, default to 'bottom'
+    input_position: top    # optional, default to 'bottom'
     lang:              # optional, default to the value of `site.lang`
+    load: lazy
     reactions_enabled: # optional, default to the value of `1`
 
 # Self-hosted static assets, optional › https://github.com/cotes2020/chirpy-static-assets
