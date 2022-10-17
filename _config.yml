@@ -23,7 +23,7 @@ timezone: Europe/London
 
 title: Nick | Blog                          # the main title
 
-tagline: A text-focused Jekyll theme   # it will display as the sub-title
+tagline: MSci (Hons) Ethical Hacking and Cybersecurity   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   A minimal, responsive, and powerful Jekyll theme for presenting professional writing.
@@ -41,7 +41,7 @@ social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
   name: Nikolay Ivanov
-  email: example@doamin.com             # change to your email address
+  email: nsashev_ivanov@protonmail.com             # change to your email address
   links:
     # The first element serves as the copyright owner's link
     - https://twitter.com/Nicks_tvvitter      # change to your twitter homepage

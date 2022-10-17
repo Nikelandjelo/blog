@@ -4,15 +4,15 @@ title: "Google CTF: Beginners Quest 2021"
 date: 2021-09-18
 desc: "Google CTF: Beginners Quest 2021"
 keywords: "CTF, Google, Beginners, Quest"
-categories: [Ctf]
-tags: [CTF, Google, BeginnersQuest]
+categories: [CTF]
+tags: [CTF]
 icon: icon-google-alt
 ---
 
-# Intro <a name="intro"></a>
-So, I missed the <a href="https://capturetheflag.withgoogle.com/" target="_blink">Google CTF</a>, but I decided to give the Beginners Quest a go. So far, I got to challenge 10, with 6 and 8 currently unsolved (Future lesson: If the CTF has a "quest" in its name, you will need to solve the challenges in a set order...).<br />
+# Intro  
+So, I missed the [Google CTF](https://capturetheflag.withgoogle.com/), but I decided to give the Beginners Quest a go. So far, I got to challenge 10, with 6 and 8 currently unsolved (Future lesson: If the CTF has a "quest" in its name, you will need to solve the challenges in a set order...).  
 Every challenge, if there’s a need - contains an attachment - an archive file with its SHA256 hash as a filename.
-<br />
+
 So, this is the map of the CTF:
 <img alt="MAP" src="/static/assets/img/blog/ctfs/2021-googlebq/map.png" width="100%" />
 <br />
@@ -35,7 +35,7 @@ And there is the order of all the challenges I got to, including the codes for e
 ```
 <br />
 
-# Challenge 1 <a name="clng1"></a>
+# Challenge 1  
 Task:
 ```
 Novosibirsk - Chemical plant
@@ -82,10 +82,10 @@ else {
 }
 ```
 
-However, it will be much easier and faster if we just write a script to get the password for us. So the way the authentication works is:<br />
-- Get the password from the password field.<br />
-- Makes an array for the password where every character of the password is added with the hex value `CAFE`.<br />
-- Every item from the array is being compared with a specific value.<br />
+However, it will be much easier and faster if we just write a script to get the password for us. So the way the authentication works is:  
+- Get the password from the password field.  
+- Makes an array for the password where every character of the password is added with the hex value `CAFE`.  
+- Every item from the array is being compared with a specific value.  
 So, what we need to do is put the comparison values in the order in a list, subtract the value `CAFE` and get our password.
 
 ```py
@@ -99,9 +99,9 @@ print(password)
 ```
 `GoodPassword`
 <img alt="clng1" src="/static/assets/img/blog/ctfs/2021-googlebq/C1-3.png" width="100%" />
-<br />
+  
 `Flag: CTF{IJustHopeThisIsNotOnShodan}`
-<br />
+  
 
 # Challenge 2 <a name="clng2"></a>
 Task:
@@ -117,7 +117,7 @@ It turned out suspect's appartment has an electronic lock. After analyzing the P
 This challenge doesn't even deserve an explanation. In a nutshell, follow the logical operation. The goal is to get a signal or a 1 at the end. If you need help with logical operations, <a href="https://www.computerhope.com/jargon/l/logioper.htm" target="_blink">this article</a> might be helpful.
 <img alt="Diagram" src="/static/assets/img/blog/ctfs/2021-googlebq/C2-2.png" width="100%" />
 `Flag: CTF{BCFIJ}`
-<br />
+  
 
 # Challenge 3 <a name="clng3"></a>
 Task:
@@ -132,7 +132,7 @@ You chase them through city streets until you reach the high way. The traffic is
 https://high-speed-chase-web.2021.ctfcompetition.com/
 ```
 <img alt="clng3" src="/static/assets/img/blog/ctfs/2021-googlebq/C3-2.png" width="100%" />
-The link for this task is getting us to a page with a car game. There is a text field and hints on how to make a function next to it.<br />
+The link for this task is getting us to a page with a car game. There is a text field and hints on how to make a function next to it.  
 According to the hints:
 
 ```
@@ -173,9 +173,9 @@ Digging into the source, we can find the function that is taking our code and ex
 <img alt="clng3" src="/static/assets/img/blog/ctfs/2021-googlebq/C3-1.png" width="50%" />
 
 
-So it seems this is a coding challenge, and we are expected to make the things work instead of breaking them.<br />
+So it seems this is a coding challenge, and we are expected to make the things work instead of breaking them.  
 If that's the case, we can just start thinking of a solution.
-The hint is clear on how everything is working. By using <code>alert(scanArray)</code>, we can make sure that the array is working as explained in the description. So to get to the end, we need to either avoid the closest object or try to chaise the furthest one.<br />
+The hint is clear on how everything is working. By using <code>alert(scanArray)</code>, we can make sure that the array is working as explained in the description. So to get to the end, we need to either avoid the closest object or try to chaise the furthest one.  
 The solution I got to (with the worse JS skills ever) I am trying to avoid the closest objects. So the source contains two "if" statements - one checking if there is an object on the left and one that checks if there is an object on the right. If any of the statements return true, another "if" statement is triggered, which checks if there are two lines taken on the same side or just one. In the end, a return function returns the value, which will take the car away from the closes object.
 
 
@@ -203,7 +203,7 @@ else if (scanArray.indexOf(Math.max(...scanArray)) + 1< 8) {
 return -1}
 ```
 `Flag: CTF{cbe138a2cd7bd97ab726ebd67e3b7126707f3e7f}`
-<br />
+  
 
 # Challenge 4 <a name="clng4"></a>
 Task:
@@ -263,7 +263,7 @@ for f in flag:
 		print(chr(res), end="")
 ```
 `Flag: CTF{be65dfa2355e5309808a7720a615bca8c82a13d7}`
-<br />
+  
 
 # Challenge 5 <a name="clng5"></a>
 Task:
@@ -359,7 +359,7 @@ for c in cipher:
 print(flag)
 ```
 `Flag: CTF{n3v3r_3ver_ev3r_use_r4nd0m}`
-<br />
+  
 
 # Challenge 7 <a name="clng7"></a>
 Task:
@@ -411,4 +411,4 @@ print("K: ", k, end="\n\n")
 print(long_to_bytes(m))
 ```
 `Flag: CTF{34sy_RS4_1s_e4sy_us3}`
-<br />
+  
