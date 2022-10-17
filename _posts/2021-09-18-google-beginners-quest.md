@@ -9,7 +9,7 @@ tags: [CTF]
 icon: icon-google-alt
 ---
 
-# Intro  
+## Intro  
 So, I missed the [Google CTF](https://capturetheflag.withgoogle.com/), but I decided to give the Beginners Quest a go. So far, I got to challenge 10, with 6 and 8 currently unsolved (Future lesson: If the CTF has a "quest" in its name, you will need to solve the challenges in a set order...).  
 Every challenge, if there’s a need - contains an attachment - an archive file with its SHA256 hash as a filename.
 
@@ -35,7 +35,7 @@ And there is the order of all the challenges I got to, including the codes for e
 ```
   
 
-# Challenge 1  
+## Challenge 1  
 Task:
 ```
 Novosibirsk - Chemical plant
@@ -103,7 +103,7 @@ print(password)
 `Flag: CTF{IJustHopeThisIsNotOnShodan}`
   
 
-# Challenge 2
+## Challenge 2
 Task:
 ```
 Moscow - Apartment
@@ -119,7 +119,7 @@ This challenge doesn't even deserve an explanation. In a nutshell, follow the lo
 `Flag: CTF{BCFIJ}`
   
 
-# Challenge 3
+## Challenge 3
 Task:
 ```
 Moscow - Streets
@@ -205,7 +205,7 @@ return -1}
 `Flag: CTF{cbe138a2cd7bd97ab726ebd67e3b7126707f3e7f}`
   
 
-# Challenge 4
+## Challenge 4
 Task:
 ```
 Secret Location - Base
@@ -265,7 +265,7 @@ for f in flag:
 `Flag: CTF{be65dfa2355e5309808a7720a615bca8c82a13d7}`
   
 
-# Challenge 5
+## Challenge 5
 Task:
 ```
 Istanbul - Bazaar
@@ -361,7 +361,7 @@ print(flag)
 `Flag: CTF{n3v3r_3ver_ev3r_use_r4nd0m}`
   
 
-# Challenge 7
+## Challenge 7
 Task:
 ```
 Buenos Aires - Conference
