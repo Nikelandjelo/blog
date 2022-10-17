@@ -100,10 +100,10 @@ comments:
   # Giscus options › https://giscus.app
   giscus:
     repo: Nikelandjelo/blog             # <gh-username>/<repo>
-    repo_id: R_kgDOIPQzwA
-    category: Blog Comments
-    category_id: DIC_kwDOIPQzwM4CSB1T
-    mapping: url       # optional, default to 'pathname'
+    repo_id: R_kgDOIPTddA
+    category: Comments
+    category_id: DIC_kwDOIPTddM4CSB7I
+    mapping: pathname       # optional, default to 'pathname'
     input_position: top    # optional, default to 'bottom'
     lang:              # optional, default to the value of `site.lang`
     load: lazy
