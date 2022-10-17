@@ -14,8 +14,8 @@ So, I missed the [Google CTF](https://capturetheflag.withgoogle.com/), but I dec
 Every challenge, if there’s a need - contains an attachment - an archive file with its SHA256 hash as a filename.
 
 So, this is the map of the CTF:
-<img alt="MAP" src="/static/assets/img/blog/ctfs/2021-googlebq/map.png" width="100%" />
-<br />
+![MAP](blog/ctfs/2021-googlebq/map.png)
+  
 And there is the order of all the challenges I got to, including the codes for each level:
 
 ```
@@ -33,7 +33,7 @@ And there is the order of all the challenges I got to, including the codes for e
 |
 10 =    LKCMP2KK
 ```
-<br />
+  
 
 # Challenge 1  
 Task:
@@ -47,13 +47,13 @@ https://cctv-web.2021.ctfcompetition.com/
 Our first task is taking us to this URL with a password prompt. If we check the source code, we can see that the authentication is on the client level. Great, so now we have to play with this JS.
 
 
-<img alt="clng1" src="/static/assets/img/blog/ctfs/2021-googlebq/C1-1.png" width="100%" />
+![clng1](blog/ctfs/2021-googlebq/C1-1.png)
 
 
 If we have a look closely, we can see that the page we are trying to access has the same name as the password, so we can't just delete the authentication script to bypass the password. However, the algorithm for checking the password is quite easy to reverse.
 
 
-<img alt="clng1" src="/static/assets/img/blog/ctfs/2021-googlebq/C1-2.png" width="50%" />
+![clng1](blog/ctfs/2021-googlebq/C1-2.png)
 
 
 If we want to play around, we can always get this piece of code and brute force the password.
@@ -98,12 +98,12 @@ for i in pas:
 print(password)
 ```
 `GoodPassword`
-<img alt="clng1" src="/static/assets/img/blog/ctfs/2021-googlebq/C1-3.png" width="100%" />
+![clng1](blog/ctfs/2021-googlebq/C1-3.png)
   
 `Flag: CTF{IJustHopeThisIsNotOnShodan}`
   
 
-# Challenge 2 <a name="clng2"></a>
+# Challenge 2
 Task:
 ```
 Moscow - Apartment
@@ -113,13 +113,13 @@ It’s a cold day, and the snow is falling horizontally. It pierces your sight. 
 Challenge: Logic Lock (misc)
 It turned out suspect's appartment has an electronic lock. After analyzing the PCB and looking up the chips you come to the conclusion that it's just a set of logic gates!
 ```
-<img alt="Lock" src="/static/assets/img/blog/ctfs/2021-googlebq/logic-lock.png" width="100%" />
-This challenge doesn't even deserve an explanation. In a nutshell, follow the logical operation. The goal is to get a signal or a 1 at the end. If you need help with logical operations, <a href="https://www.computerhope.com/jargon/l/logioper.htm" target="_blink">this article</a> might be helpful.
-<img alt="Diagram" src="/static/assets/img/blog/ctfs/2021-googlebq/C2-2.png" width="100%" />
+![Lock](blog/ctfs/2021-googlebq/logic-lock.png)
+This challenge doesn't even deserve an explanation. In a nutshell, follow the logical operation. The goal is to get a signal or a 1 at the end. If you need help with logical operations, [this article](https://www.computerhope.com/jargon/l/logioper.htm) might be helpful.
+![Diagram](blog/ctfs/2021-googlebq/C2-2.png)
 `Flag: CTF{BCFIJ}`
   
 
-# Challenge 3 <a name="clng3"></a>
+# Challenge 3
 Task:
 ```
 Moscow - Streets
@@ -131,7 +131,7 @@ You chase them through city streets until you reach the high way. The traffic is
 
 https://high-speed-chase-web.2021.ctfcompetition.com/
 ```
-<img alt="clng3" src="/static/assets/img/blog/ctfs/2021-googlebq/C3-2.png" width="100%" />
+![clng3](blog/ctfs/2021-googlebq/C3-2.png)
 The link for this task is getting us to a page with a car game. There is a text field and hints on how to make a function next to it.  
 According to the hints:
 
@@ -164,22 +164,22 @@ The controlCar must return an integer denoting where the car should drive:
 Furthermore, this picture is included:
 
 
-<img alt="clng3" src="/static/assets/img/blog/ctfs/2021-googlebq/task3explained.png" width="100%" />
+![clng3](blog/ctfs/2021-googlebq/task3explained.png)
 
 
 Digging into the source, we can find the function that is taking our code and executing it:
 
 
-<img alt="clng3" src="/static/assets/img/blog/ctfs/2021-googlebq/C3-1.png" width="50%" />
+![clng3](blog/ctfs/2021-googlebq/C3-1.png)
 
 
 So it seems this is a coding challenge, and we are expected to make the things work instead of breaking them.  
 If that's the case, we can just start thinking of a solution.
-The hint is clear on how everything is working. By using <code>alert(scanArray)</code>, we can make sure that the array is working as explained in the description. So to get to the end, we need to either avoid the closest object or try to chaise the furthest one.  
+The hint is clear on how everything is working. By using `alert(scanArray)`, we can make sure that the array is working as explained in the description. So to get to the end, we need to either avoid the closest object or try to chaise the furthest one.  
 The solution I got to (with the worse JS skills ever) I am trying to avoid the closest objects. So the source contains two "if" statements - one checking if there is an object on the left and one that checks if there is an object on the right. If any of the statements return true, another "if" statement is triggered, which checks if there are two lines taken on the same side or just one. In the end, a return function returns the value, which will take the car away from the closes object.
 
 
-<img alt="clng3" src="/static/assets/img/blog/ctfs/2021-googlebq/C3-end.gif" width="100%" />
+![clng3](blog/ctfs/2021-googlebq/C3-end.gif)
 
 
 ```js
@@ -205,7 +205,7 @@ return -1}
 `Flag: CTF{cbe138a2cd7bd97ab726ebd67e3b7126707f3e7f}`
   
 
-# Challenge 4 <a name="clng4"></a>
+# Challenge 4
 Task:
 ```
 Secret Location - Base
@@ -245,11 +245,11 @@ int main(void)
 		sleep_us(100);
 [clip]
 ```
-<img alt="clng4" src="/static/assets/img/blog/ctfs/2021-googlebq/C4-set_mask.png" width="70%" />
-<img alt="clng4" src="/static/assets/img/blog/ctfs/2021-googlebq/C4-clr_mask.png" width="70%" />
-<img alt="clng4" src="/static/assets/img/blog/ctfs/2021-googlebq/C4-put_all.png" width="70%" />
-<img alt="clng4" src="/static/assets/img/blog/ctfs/2021-googlebq/C4-mask-to-bin.png" width="100%" />
-<img alt="clng4" src="/static/assets/img/blog/ctfs/2021-googlebq/C4-end.png" width="100%" />
+![clng4](blog/ctfs/2021-googlebq/C4-set_mask.png)
+![clng4](blog/ctfs/2021-googlebq/C4-clr_mask.png)
+![clng4](blog/ctfs/2021-googlebq/C4-put_all.png)
+![clng4](blog/ctfs/2021-googlebq/C4-mask-to-bin.png)
+![clng4](blog/ctfs/2021-googlebq/C4-end.png)
 
 ```py
 flag = [67, 0, 20, 3, 2, 16, 57, 4, 0, 25, 5, 2, 18, 65, 1, 2, 64, 17, 2, 0, 1, 6, 18, 65, 1, 0, 4, 2, 0, 0, 64, 16, 16, 64, 2, 4, 0, 3, 9, 0, 0, 1, 0, 8, 8, 0, 65, 24, 22, 64, 0, 0, 0, 5, 0, 2, 65, 16, 22, 65, 1, 6, 4, 0, 66, 21, 1, 0, 0, 2, 24, 65, 67, 24, 24, 67, 2, 8, 65, 18, 16, 64, 2, 0, 68, 19, 19, 64, 72, 2, 2, 117]
@@ -265,7 +265,7 @@ for f in flag:
 `Flag: CTF{be65dfa2355e5309808a7720a615bca8c82a13d7}`
   
 
-# Challenge 5 <a name="clng5"></a>
+# Challenge 5
 Task:
 ```
 Istanbul - Bazaar
@@ -361,7 +361,7 @@ print(flag)
 `Flag: CTF{n3v3r_3ver_ev3r_use_r4nd0m}`
   
 
-# Challenge 7 <a name="clng7"></a>
+# Challenge 7
 Task:
 ```
 Buenos Aires - Conference
@@ -411,4 +411,3 @@ print("K: ", k, end="\n\n")
 print(long_to_bytes(m))
 ```
 `Flag: CTF{34sy_RS4_1s_e4sy_us3}`
-  
