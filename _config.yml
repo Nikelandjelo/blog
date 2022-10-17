@@ -99,7 +99,7 @@ comments:
     issue_term:   # < url | pathname | title | ...>
   # Giscus options › https://giscus.app
   giscus:
-    repo: Nikelandjelo/blog             # <gh-username>/<repo>
+    repo: Nikelandjelo/blog-cdn             # <gh-username>/<repo>
     repo_id: R_kgDOIPTddA
     category: Comments
     category_id: DIC_kwDOIPTddM4CSB7I
