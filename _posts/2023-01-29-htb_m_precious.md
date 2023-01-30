@@ -4,7 +4,7 @@ title: "HTB: Precious"
 date: 2023-01-29
 keywords: "HTB, HackTheBox, Precious, Easy"
 categories: [HTB Machines]
-tags: [CTF, HTB, Easy]
+tags: [CTF, HTB, HTB-Easy]
 ---
 
 ## Intro
