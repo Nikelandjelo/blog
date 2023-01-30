@@ -370,8 +370,13 @@ uid=0(root) gid=0(root) groups=0(root)
 ## Referemce List
 
 https://security.snyk.io/vuln/SNYK-RUBY-PDFKIT-2869795
+
 https://github.com/advisories/GHSA-rhwx-hjx2-x4qr
+
 https://www.ctfiot.com/84447.html
+
 https://readysteadycode.com/howto-execute-shell-commands-with-ruby-backticks
+
 https://www.revshells.com/
+
 https://blog.stratumsecurity.com/2021/06/09/blind-remote-code-execution-through-yaml-deserialization/
