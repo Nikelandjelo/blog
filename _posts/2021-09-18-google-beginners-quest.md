@@ -5,7 +5,7 @@ date: 2021-09-18
 desc: "Google CTF: Beginners Quest 2021"
 keywords: "CTF, Google, Beginners, Quest"
 categories: [CTF]
-tags: [CTF]
+tags: [CTF, Google]
 icon: icon-google-alt
 ---
 
