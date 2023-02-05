@@ -4,7 +4,7 @@ title: "HTB: Stocker"
 date: 2023-02-05
 keywords: "HTB, HackTheBox, Stocker, Easy"
 categories: [HTB Machines]
-tags: [CTF, HTB, Easy]
+tags: [CTF, HTB, HTB-Easy]
 ---
 
 ## Intro
