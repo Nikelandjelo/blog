@@ -328,7 +328,7 @@ It appears there is some exposed JS in the source of the page:
 
 Looking closer into the second part of the code, we can see that:
 
-1. When submitting an order, a POST API call is made to `/api/order`. The POST request has a JSON body containing the values stored in the `basket` variable. 
+* When submitting an order, a POST API call is made to `/api/order`. The POST request has a JSON body containing the values stored in the `basket` variable. 
 
 ```javascript
 .
@@ -347,7 +347,7 @@ submitPurchase.addEventListener("click", () => {
 
 ![](blog/htb_m/Stocker/Pasted image 20230205163422.png)
 
-2. Then, the result from the response is taken. A check for the success of the response is made. If the response is different from `success`, then the rest of the code won't be executed.
+* Then, the result from the response is taken. A check for the success of the response is made. If the response is different from `success`, then the rest of the code won't be executed.
 
 ```javascript
 	.then((response) => response.json())
@@ -357,7 +357,7 @@ submitPurchase.addEventListener("click", () => {
 
 ![](blog/htb_m/Stocker/Pasted image 20230205164101.png)
 
-3. However, on success, the value of the variable `purchaseOrderLink` is set to `/api/po/<OrderID>`.
+* However, on success, the value of the variable `purchaseOrderLink` is set to `/api/po/<OrderID>`.
 
 ```javascript
 		purchaseOrderLink.setAttribute("href", `/api/po/${response.orderId}`);
@@ -392,7 +392,7 @@ So, we can try using either the `title` or `price` parameters.
 
 In my case, I tried both, by using the [**Read local file**](https://book.hacktricks.xyz/pentesting-web/xss-cross-site-scripting/server-side-xss-dynamic-pdf#read-local-file) `iframe` payload provided by [*HackTricks*](https://book.hacktricks.xyz/).
 
-```HTML
+```html
 <iframe src=file:///etc/passwd></iframe>
 ```
 
@@ -443,7 +443,7 @@ _laurel:x:998:998::/var/log/laurel:/bin/false
 
 After exploring around, I stumbled on the `index.js` source code.
 
-```HTML
+```html
 <iframe src=file:///var/www/dev/index.js height=1000px width=1000px></iframe>
 ```
 
