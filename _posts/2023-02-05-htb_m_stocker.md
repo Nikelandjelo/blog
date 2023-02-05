@@ -15,7 +15,7 @@ tags: [CTF, HTB, Easy]
 
 To begin with this machine, I went directly to the browser in order to confirm if there is a Web server.
 
-![[Pasted image 20230205124321.png]]
+![](blog/htb_m/Stocker/Pasted image 20230205124321.png)
 
 It looks like there is one and it's trying to redirect me to the hostname `stocker.htb`.
 To fix the DNS resolving issue, I added the box's IP and the hostname it's redirecting us to my `/etc/hosts` file.
@@ -35,7 +35,7 @@ ff02::2         ip6-allrouters
 
 A page reload showed the page behind the server.
 
-![[Pasted image 20230205124914.png]]
+![](blog/htb_m/Stocker/Pasted image 20230205124914.png)
 
 I also ran a Nmap scan to gain a better understanding and overview of the server.
 
@@ -86,7 +86,7 @@ In that case, there were only two ports open:
 
 Now, going back to the Web server, can be noted that the page is under development.
 
-![[Pasted image 20230205135211.png]]
+![](blog/htb_m/Stocker/Pasted image 20230205135211.png)
 
 It can be concluded that there would be either a:
 - Hidden **Subdirectory**
@@ -206,11 +206,11 @@ Connection: close
 {"username": {"$ne": null}, "password": {"$ne": null}}
 ```
 
-![[Pasted image 20230205143936.png]]
+![](blog/htb_m/Stocker/Pasted image 20230205143936.png)
 
 Success!
 
-![[Pasted image 20230205144018.png]]
+![](blog/htb_m/Stocker/Pasted image 20230205144018.png)
 
 It appears there is some exposed JS in the source of the page:
 
@@ -345,7 +345,7 @@ submitPurchase.addEventListener("click", () => {
 	})
 ```
 
-![[Pasted image 20230205163422.png]]
+![](blog/htb_m/Stocker/Pasted image 20230205163422.png)
 
 2. Then, the result from the response is taken. A check for the success of the response is made. If the response is different from `success`, then the rest of the code won't be executed.
 
@@ -355,7 +355,7 @@ submitPurchase.addEventListener("click", () => {
 		if (!response.success) return alert("Something went wrong processing your order!");
 ```
 
-![[Pasted image 20230205164101.png]]
+![](blog/htb_m/Stocker/Pasted image 20230205164101.png)
 
 3. However, on success, the value of the variable `purchaseOrderLink` is set to `/api/po/<OrderID>`.
 
@@ -371,11 +371,11 @@ submitPurchase.addEventListener("click", () => {
 });
 ```
 
-![[Pasted image 20230205164553.png]]
+![](blog/htb_m/Stocker/Pasted image 20230205164553.png)
 
 This link point to a *dynamically generated PDF* with the order details.
 
-![[Pasted image 20230205164721.png]]
+![](blog/htb_m/Stocker/Pasted image 20230205164721.png)
 
 >## Server Side XSS (Dynamic PDF)
 >
@@ -386,7 +386,7 @@ This link point to a *dynamically generated PDF* with the order details.
 
 Now that we know that there "might" be a server-side XSS, we need to see which values from the POST API calls are used for the PDF generation.
 
-![[Pasted image 20230205170445.png]]
+![](blog/htb_m/Stocker/Pasted image 20230205170445.png)
 
 So, we can try using either the `title` or `price` parameters.
 
@@ -396,7 +396,7 @@ In my case, I tried both, by using the [**Read local file**](https://book.hacktr
 <iframe src=file:///etc/passwd></iframe>
 ```
 
-![[Pasted image 20230205171003.png]]
+![](blog/htb_m/Stocker/Pasted image 20230205171003.png)
 
 And it looks like the `title` parameter can be exploited due to the lack of sanitisation. Furthermore, the success of the use of the `file:` parameter indicates the exploit of *Server-Side XSS* and [*SSRF (Server Side Request Forgery)*](https://book.hacktricks.xyz/pentesting-web/ssrf-server-side-request-forgery).
 
@@ -449,7 +449,7 @@ After exploring around, I stumbled on the `index.js` source code.
 
 There I found the MongoDB credentials:
 
-![[Pasted image 20230205174319.png]]
+![](blog/htb_m/Stocker/Pasted image 20230205174319.png)
 
 ```JS
 // TODO: Configure loading from dotenv for production
