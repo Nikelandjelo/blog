@@ -81,8 +81,8 @@ Nmap done: 1 IP address (1 host up) scanned in 20.23 seconds
 ```
 
 In that case, there were only two ports open:
-- **22 | SSH**
-- **80 | HTTP**
+- **22 SSH**
+- **80 HTTP**
 
 Now, going back to the Web server, can be noted that the page is under development.
 
