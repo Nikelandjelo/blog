@@ -164,7 +164,7 @@ pwd
 /var/www/pdfapp
 ```
 
-## User Privilage Escalation
+## User Privilege Escalation
 
 One of the ways to identify the users on Linux-based systems is by displaying the content of `/etc/passwd`.
 
@@ -228,7 +228,7 @@ henry@precious:~$ cat user.txt
 8b99b0960c5f70e29d309ee21ff71648
 ```
 
-## Root Privilage Escalation
+## Root Privilege Escalation
 
 Running a quick `sudo -l` provided me with the command `/usr/bin/ruby /opt/update_dependencies.rb`.
 
@@ -367,7 +367,7 @@ uid=0(root) gid=0(root) groups=0(root)
 3b2de2dffebaa79e8828bf008967167a
 ```
 
-## Referemce List
+## Reference List
 
 https://security.snyk.io/vuln/SNYK-RUBY-PDFKIT-2869795
 

@@ -111,7 +111,7 @@ Moscow - Apartment
 It’s a cold day, and the snow is falling horizontally. It pierces your sight. You better use those extra pairs of socks that you were strangely given by the driver. Someone is waving on the other side of the street. You walk over to her. "Hi AGENT, I’m AGENT X, we’ve found the apartment of a person that we suspect got something to do with the mission. Come along!."
 
 Challenge: Logic Lock (misc)
-It turned out suspect's appartment has an electronic lock. After analyzing the PCB and looking up the chips you come to the conclusion that it's just a set of logic gates!
+It turned out the suspect's apartment had an electronic lock. After analyzing the PCB and looking up the chips you come to the conclusion that it's just a set of logic gates!
 ```
 ![Lock](blog/ctfs/2021-googlebq/logic-lock.png)
 This challenge doesn't even deserve an explanation. In a nutshell, follow the logical operation. The goal is to get a signal or a 1 at the end. If you need help with logical operations, [this article](https://www.computerhope.com/jargon/l/logioper.htm) might be helpful.
@@ -144,12 +144,12 @@ To implement it in JavaScript use the editor on the left.
 
 When implemented, controlCar function will be called several times per second during the chase to allow for course corrections.
 
-The controlCar function takes a single parameter – scanArray – which is an array containing 17 integers denoting distance from your car to the nearest obstacle:
+The controlCar function takes a single parameter – scanArray – which is an array containing 17 integers denoting the distance from your car to the nearest obstacle:
 
 [indexes 0-7]: on the left side of the car (index 7 is the measurement at the left headlight),
-[index 8]: at the center of the car,
+[index 8]: at the centre of the car,
 [indexes 9-16]: on the right side of the car (index 9 is the measurement at the right headlight).
-See also this image (it's not precise, but will give you an idea what you are looking at).
+See also this image (it's not precise, but will give you an idea of what you are looking at).
 
 All measurements are parallel to each other.
 
@@ -173,10 +173,10 @@ Digging into the source, we can find the function that is taking our code and ex
 ![clng3](blog/ctfs/2021-googlebq/C3-1.png)
 
 
-So it seems this is a coding challenge, and we are expected to make the things work instead of breaking them.  
+So it seems this is a coding challenge, and we are expected to make things work instead of breaking them.  
 If that's the case, we can just start thinking of a solution.
 The hint is clear on how everything is working. By using `alert(scanArray)`, we can make sure that the array is working as explained in the description. So to get to the end, we need to either avoid the closest object or try to chaise the furthest one.  
-The solution I got to (with the worse JS skills ever) I am trying to avoid the closest objects. So the source contains two "if" statements - one checking if there is an object on the left and one that checks if there is an object on the right. If any of the statements return true, another "if" statement is triggered, which checks if there are two lines taken on the same side or just one. In the end, a return function returns the value, which will take the car away from the closes object.
+The solution I got to (with the worst JS skills ever) I am trying to avoid the closest objects. So the source contains two "if" statements - one checking if there is an object on the left and one that checks if there is an object on the right. If any of the statements return true, another "if" statement is triggered, which checks if there are two lines taken on the same side or just one. In the end, a return function returns the value, which will take the car away from the closest object.
 
 
 ![clng3](blog/ctfs/2021-googlebq/C3-end.gif)

@@ -9,11 +9,11 @@ tags: [CTF, HTB, HTB-Easy]
 
 ## Intro
 
-**Stocker** is an *Easy* HackTheBox machine covering a NodeJS Web application exploit and a SUDO privesk esploiting wildcard.
+**Stocker** is an *Easy* HackTheBox machine covering a NodeJS Web application exploit and a SUDO privesk exploiting wildcard.
 
 ## Enumeration
 
-To begin with this machine, I went directly to the browser in order to confirm if there is a Web server.
+To begin with this machine, I went directly to the browser in order to confirm if there was a Web server.
 
 ![](blog/htb_m/Stocker/Pasted image 20230205124321.png)
 
@@ -84,7 +84,7 @@ In that case, there were only two ports open:
 - **22 SSH**
 - **80 HTTP**
 
-Now, going back to the Web server, can be noted that the page is under development.
+Now, going back to the Web server can be noted that the page is under development.
 
 ![](blog/htb_m/Stocker/Pasted image 20230205135211.png)
 
@@ -181,7 +181,7 @@ ff02::2         ip6-allrouters
 ```
 {: file="/etc/hosts"}
 
-## Initial Access (NO User Privilage Escalation)
+## Initial Access (NO User Privilege Escalation)
 
 After testing the login page for SQLi and XSS, I proceeded to NoSQLi.
 
@@ -373,13 +373,13 @@ submitPurchase.addEventListener("click", () => {
 
 ![](blog/htb_m/Stocker/Pasted image 20230205164553.png)
 
-This link point to a *dynamically generated PDF* with the order details.
+This link points to a *dynamically generated PDF* with the order details.
 
 ![](blog/htb_m/Stocker/Pasted image 20230205164721.png)
 
 >## Server Side XSS (Dynamic PDF)
 >
->If a web page is creating a PDF using user controlled input, you can try to **trick the bot** that is creating the PDF into **executing arbitrary JS code**. So, if the **PDF creator bot finds** some kind of **HTML** **tags**, it is going to **interpret** them, and you can **abuse** this behaviour to cause a **Server XSS**.
+>If a web page is creating a PDF using user-controlled input, you can try to **trick the bot** that is creating the PDF into **executing arbitrary JS code**. So, if the **PDF creator bot finds** some kind of **HTML** **tags**, it is going to **interpret** them, and you can **abuse** this behaviour to cause a **Server XSS**.
 {: .prompt-info }
 
 [**SOURCE**](https://book.hacktricks.xyz/pentesting-web/xss-cross-site-scripting/server-side-xss-dynamic-pdf)
@@ -400,7 +400,7 @@ In my case, I tried both, by using the [**Read local file**](https://book.hacktr
 
 And it looks like the `title` parameter can be exploited due to the lack of sanitisation. Furthermore, the success of the use of the `file:` parameter indicates the exploit of *Server-Side XSS* and [*SSRF (Server Side Request Forgery)*](https://book.hacktricks.xyz/pentesting-web/ssrf-server-side-request-forgery).
 
-After repeating the steps from above and editing the payload to expend the `iframe` for better readability (`height=1000px width=1000px`), I was able to read the username.
+After repeating the steps from above and editing the payload to expand the `iframe` for better readability (`height=1000px width=1000px`), I was able to read the username.
 
 ```bash
 root:x:0:0:root:/root:/bin/bash
@@ -473,7 +473,7 @@ uid=1001(angoose) gid=1001(angoose) groups=1001(angoose)
 cf901f8fe560505899ed37d6ba998c19
 ```
 
-## Root Privilage Escalation
+## Root Privilege Escalation
 
 Running `sudo -l` and entering the password shows that `/usr/bin/node /usr/local/scripts/*.js` can be executed.
 
@@ -488,7 +488,7 @@ User angoose may run the following commands on stocker:
 
 Setting SUDO permissions with wildcard could lead to potential vulnerabilities, like in this case.
 
-For the sace of not interfiering with other palyers, I made a folder in `/tmp` and made a JS file in which I pasted a line of JS which spawns a shell.
+For the sake of not interfering with other palyers, I made a folder in `/tmp` and made a JS file in which I pasted a line of JS which spawns a shell.
 
 ```bash
 $ pwd
@@ -509,7 +509,7 @@ require("child_process").spawn("/bin/bash", ["-p"], {stdio: [0, 1, 2]})
 [**SOURCE**](https://gtfobins.github.io/gtfobins/node/#suid)
 
 ---
-# Referemce List
+# Reference List
 
 https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/NoSQL%20Injection#authentication-bypass  
 https://book.hacktricks.xyz/pentesting-web/xss-cross-site-scripting/server-side-xss-dynamic-pdf  
