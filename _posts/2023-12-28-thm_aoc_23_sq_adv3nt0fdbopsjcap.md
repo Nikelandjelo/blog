@@ -318,11 +318,3 @@ python bin/pyrdp-player.py
 >What is the content of the `yetikey1.txt` file?
 >- [x] 1-1f9548f131522e85ea30e801dfd9b1a4e526003f9e83301faad85e6154ef2834
 {: .prompt-info }
-
-## Conclusion
-
-This challenge covered Wi-Fi password cracking, PCAP network analysis, and RDP traffic analysis. Overall, I found the challenge to be a lot of fun and I learned a great deal. 
-
-If you're interested in learning how to obtain the Event Key for this room, you can find my write-up on it [here](/posts/thm_aoc_23_sq_adv3nt0fdbopsjcap/).
-
-Additionally, if you're looking for a guide on how to solve the Second Sidequest Room, you can also check out my write-up on it [here](/posts/thm_aoc_23_sq_armageddon2r/).
