@@ -1,5 +1,6 @@
 ---
 layout: post
+author: nIIk
 title: "HTB: Precious"
 date: 2023-01-29
 keywords: "HTB, HackTheBox, Precious, Easy"

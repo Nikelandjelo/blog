@@ -15,6 +15,7 @@ function jekyll_serve() {
   docker run --rm \
     --volume="$PWD:/srv/jekyll:Z" \
     --publish [::1]:4000:4000 \
+    --dns=8.8.8.8 \
     jekyll/jekyll \
     jekyll serve
 }

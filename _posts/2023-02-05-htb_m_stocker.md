@@ -1,5 +1,6 @@
 ---
 layout: post
+author: nIIk
 title: "HTB: Stocker"
 date: 2023-02-05
 keywords: "HTB, HackTheBox, Stocker, Easy"

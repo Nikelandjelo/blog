@@ -1,5 +1,6 @@
 ---
 layout: post
+author: nIIk
 title: "Google CTF: Beginners Quest 2021"
 date: 2021-09-18
 desc: "Google CTF: Beginners Quest 2021"
