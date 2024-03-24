@@ -3,10 +3,12 @@ layout: post
 author: nIIk
 title: "I love Arch..."
 date: 2024-03-24 00:00
-keywords: "linux", "arch"
+keywords: "linux, arch"
 categories: [Linux]
-tags: [debugging]
+tags: [debugging, linux]
 ---
+
+## Don't we all love broken dependencies?!?!?
 
 After a sweet update at the end of my day, I was a good boy and I restarted my system just to be prompted with a frozen screen. Lucy enough, I got TTY. After some debugging I realised that `libmount.so.1` was at version 2.39, whereas `libgio.`so.0` requires version 2.40...
 
