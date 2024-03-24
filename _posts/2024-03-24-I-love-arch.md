@@ -20,7 +20,7 @@ Sooo, I decided I should do the things from `chroot`, so I booted in an external
 
 ![GLIB](blog/linux/1/glib.png)
 
-![util-linux](blog/linux/1/utli-linux.png)
+![util-linux](blog/linux/1/util-linux.png)
 
 I ran `pacman -Syu` from the `chroot` terminal, restarted my machine, and everything was running just fine again...
 
